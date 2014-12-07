@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ab['Name']}}</title>
+	{% if links %}
+		<link rel="stylesheet" type="text/css" href="static/main.css">
+		<script type="text/javascript" src="static/main.js"></script>
+	{% else %}
+		<link rel="stylesheet" type="text/css" href="../static/main.css">
+		<script type="text/javascript" src="../static/main.js"></script>
+	{% endif %}
+</head>
+<body>
+
+{% block header %} {% endblock %}
+
+
+
+
+
+<div class="container">
+
+{% if links %}
+
+<div class="links">
+	<ul>
+		{% for i,j in links %}
+		<li class="post">
+			<a href={{i}}>	<h1>{{	j['title'][0]	}}</h1> </a>
+			<p class="summary">{{	j['summary'][0]	}}</p>
+			<p class="time">{{	j['date'][0]	}}</p>
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+
+{% elif var %}
+
+{% block content %} {% endblock %}
+{% endif %}
+
+</div>
+
+
+</body>
+</html>
