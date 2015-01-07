@@ -22,6 +22,7 @@ class render():
         return l
 
     def to_html(self, data):
+        'convert markdown to html'
        md = markdown.Markdown(extensions=['meta'])
        return md.convert(data)
 
